@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+   <defs>
+     <!-- Gradient Background -->
+     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+       <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+       <stop offset="100%" style="stop-color:#FF8F1C;stop-opacity:1" />
+     </linearGradient>
+   </defs>
+   
+   <!-- Circular Background -->
+   <circle cx="250" cy="250" r="170" fill="url(#bgGradient)"/>
+   
+   <circle cx="250" cy="250" r="160" fill="white" opacity="0.9">
+     <animate attributeName="r" values="150;160;150" dur="2s" repeatCount="indefinite"  />
+   </circle>
+   
+   <!-- Animated Skill Nodes -->
+   <g id="skillNodes">
+     <circle cx="120" cy="160" r="25" fill="#FF6B35" opacity="0.8">
+       <animate attributeName="r" values="50;35;50" dur="2s" repeatCount="indefinite" />
+     </circle>
+     <circle cx="320" cy="110" r="25" fill="#FF8F1C" opacity="0.8">
+       <animate attributeName="r" values="50;35;50" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+     </circle>
+     <circle cx="160" cy="300" r="25" fill="#FF4500" opacity="0.8">
+       <animate attributeName="r" values="50;35;50" dur="2s" repeatCount="indefinite" begin="1s"/>
+     </circle>
+     <circle cx="340" cy="340" r="25" fill="#FF5733" opacity="1.8">
+       <animate attributeName="r" values="50;35;50" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+     </circle>
+   </g>
+   
+   <!-- Animated Connections -->
+   <g id="connections">
+     <path d="M180,190 Q250,130 320,190" fill="none" stroke="#FF6B35" stroke-width="6">
+       <animate attributeName="stroke-dasharray" values="0 500;500 0" dur="3s" repeatCount="indefinite" />
+     </path>
+     <path d="M160,330 Q250,270 340,330" fill="none" stroke="#FF8F1C" stroke-width="6">
+       <animate attributeName="stroke-dasharray" values="0 500;500 0" dur="3s" repeatCount="indefinite" begin="1s"/>
+     </path>
+   </g>
+   
+   <!-- Brand Text -->
+   <text x="250" y="280" font-family="Arial, sans-serif" font-size="110" font-weight="bold" text-anchor="middle" fill="#000000">
+     SkillFlow
+   </text>
+</svg>

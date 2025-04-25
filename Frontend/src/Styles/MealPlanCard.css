@@ -1,0 +1,31 @@
+SkillShareCard.css
+
+.media-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .media-img, .media-video {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .media-img, .media-video {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ant-card {
+      padding: 8px;
+    }
+    .ant-card-head {
+      font-size: 16px;
+    }
+  }
+  
