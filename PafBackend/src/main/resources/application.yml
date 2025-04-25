@@ -1,0 +1,39 @@
+access-token:
+  private: ${ACCESS_TOKEN_PRIVATE_KEY_PATH}
+  public: ${ACCESS_TOKEN_PUBLIC_KEY_PATH}
+
+refresh-token:
+  private: ${REFRESH_TOKEN_PRIVATE_KEY_PATH}
+  public: ${REFRESH_TOKEN_PUBLIC_KEY_PATH}
+
+spring:
+  application:
+    name: PafBackend
+  profiles:
+    active: dev
+  data:
+    mongodb:
+      uri: mongodb+srv://PAF:1234@cluster0.r58p4h3.mongodb.net/
+      database: ${MONGODB_DB}
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Iv23litdBMIIe0YQNmOn
+            client-secret: bd93c525884141aa7af972a79c99f76681adbd87
+          google:
+            client-id: 791314813736-eoti9ailj9ou93kvq17lu0m0o08rgfna.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile, email
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: email
+
+logging:
+  level:
+    org.springframework.security: DEBUG
