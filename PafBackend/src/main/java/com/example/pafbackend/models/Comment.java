@@ -7,15 +7,20 @@ import java.util.Date;
 @Document(collection = "comments")
 public class Comment {
     @Id
-    private String id;
-    private String postId;
-    private String userId;
-    private String commentText;
-    private Date timestamp;
+    private String id;       // Unique id for the comment
+    private String postId;   // ID of the post to which this comment belongs
+    private String userId;   // ID of the user who made the comment
+    private String commentText; // The actual text content of the comment
+    private Date timestamp;   // Timestamp when the comment was created
 
+
+    // Default constructor required for serialization/deserialization
 
 
     public Comment() {}
+
+    // Getters and Setters
+
 
     public String getId() {
         return id;
@@ -56,6 +61,9 @@ public class Comment {
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
+
+    // Parameterized constructor for creating a Comment object with all fields set
+
 
     public Comment(String id, String postId, String userId, String commentText, Date timestamp) {
         this.id = id;
