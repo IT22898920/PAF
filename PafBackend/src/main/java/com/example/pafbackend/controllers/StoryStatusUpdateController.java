@@ -20,23 +20,27 @@ public class StoryStatusUpdateController {
         this.workoutStatusUpdateRepository = workoutStatusUpdateRepository;
     }
 
+    // Get all workout status updates
     @GetMapping
     public ResponseEntity<List<StoryStatusUpdate>> getUpdatesByUserId() {
         List<StoryStatusUpdate> updates = workoutStatusUpdateRepository.findAll();
         return new ResponseEntity<>(updates, HttpStatus.OK);
     }
 
+    // Get workout status updates by user ID
     @GetMapping("/{userId}")
     public ResponseEntity<List<StoryStatusUpdate>> getUpdatesByUserId(@PathVariable String userId) {
         List<StoryStatusUpdate> updates = workoutStatusUpdateRepository.findByUserId(userId);
         return new ResponseEntity<>(updates, HttpStatus.OK);
     }
 
+    // Get workout status updates by ID
     @PostMapping
     public ResponseEntity<StoryStatusUpdate> createUpdate(@RequestBody StoryStatusUpdate update) {
         StoryStatusUpdate savedUpdate = workoutStatusUpdateRepository.save(update);
         return new ResponseEntity<>(savedUpdate, HttpStatus.CREATED);
     }
+    // Delete workout status update by ID
 
     @DeleteMapping("/{updateId}")
     public ResponseEntity<Void> deleteUpdate(@PathVariable String updateId) {
@@ -44,6 +48,7 @@ public class StoryStatusUpdateController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    // Update workout status update by ID
     @PutMapping("/{updateId}")
     public ResponseEntity<StoryStatusUpdate> updateUpdate(@PathVariable String updateId, @RequestBody StoryStatusUpdate updateDetails) {
         return workoutStatusUpdateRepository.findById(updateId)

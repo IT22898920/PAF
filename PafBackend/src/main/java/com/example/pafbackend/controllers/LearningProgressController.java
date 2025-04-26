@@ -16,9 +16,11 @@ public class LearningProgressController {
     private final LearningProgressRepository LearningProgressRepository;
 
     @Autowired
+
     public LearningProgressController(LearningProgressRepository LearningProgressRepository) {
         this.LearningProgressRepository = LearningProgressRepository;
     }
+    //get all learning progress
 
     @GetMapping
     public ResponseEntity<List<LearningProgress>> getLearningProgresss() {
@@ -26,23 +28,28 @@ public class LearningProgressController {
         return new ResponseEntity<>(LearningProgresss, HttpStatus.OK);
     }
 
+    //adding user ID
     @GetMapping("/{userId}")
     public ResponseEntity<List<LearningProgress>> getLearningProgresssByUserId(@PathVariable String userId) {
         List<LearningProgress> LearningProgresss = LearningProgressRepository.findByUserId(userId);
         return new ResponseEntity<>(LearningProgresss, HttpStatus.OK);
     }
 
+    //get learning progress by id
     @PostMapping
     public ResponseEntity<LearningProgress> createLearningProgress(@RequestBody LearningProgress LearningProgress) {
         LearningProgress savedLearningProgress = LearningProgressRepository.save(LearningProgress);
         return new ResponseEntity<>(savedLearningProgress, HttpStatus.CREATED);
     }
 
+    //add delete method
     @DeleteMapping("/{LearningProgressId}")
     public ResponseEntity<Void> deleteLearningProgress(@PathVariable String LearningProgressId) {
         LearningProgressRepository.deleteById(LearningProgressId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    //add update method
     @PutMapping("/{LearningProgressId}")
     public ResponseEntity<LearningProgress> updateLearningProgress(@PathVariable String LearningProgressId, @RequestBody LearningProgress updatedLearningProgress) {
         Optional<LearningProgress> existingLearningProgressOptional = LearningProgressRepository.findById(LearningProgressId);

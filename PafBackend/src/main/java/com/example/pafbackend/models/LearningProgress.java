@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 public class LearningProgress {
+    //add modell for lerning progress
     @Id
     private String id;
     private String userId;
