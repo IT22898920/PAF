@@ -8,10 +8,11 @@ import java.util.Date;
 public class Comment {
     @Id
     private String id;
-    private String postId;
-    private String userId;
-    private String commentText;
-    private Date timestamp;
+    private String postId;   // ID of the post to which this comment belongs
+    private String userId;   // ID of the user who made the comment
+    private String commentText; // The actual text content of the comment
+    private Date timestamp;   // Timestamp when the comment was created
+
 
 
 
