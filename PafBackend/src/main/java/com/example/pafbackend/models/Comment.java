@@ -14,9 +14,13 @@ public class Comment {
     private Date timestamp;   // Timestamp when the comment was created
 
 
+    // Default constructor required for serialization/deserialization
 
 
     public Comment() {}
+
+    // Getters and Setters
+
 
     public String getId() {
         return id;
