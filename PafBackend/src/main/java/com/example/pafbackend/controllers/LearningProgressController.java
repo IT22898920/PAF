@@ -24,9 +24,11 @@ public class LearningProgressController {
      * Constructor-based dependency injection for LearningProgressRepository.
      */
     @Autowired
+
     public LearningProgressController(LearningProgressRepository LearningProgressRepository) {
         this.LearningProgressRepository = LearningProgressRepository;
     }
+    //get all learning progress
 
     /**
      * GET endpoint to retrieve all learning progress records.
@@ -43,6 +45,7 @@ public class LearningProgressController {
      * @param userId the ID of the user
      * @return List of learning progress records for the given user.
      */
+    //adding user ID
     @GetMapping("/{userId}")
     public ResponseEntity<List<LearningProgress>> getLearningProgresssByUserId(@PathVariable String userId) {
         List<LearningProgress> LearningProgresss = LearningProgressRepository.findByUserId(userId);
@@ -54,6 +57,7 @@ public class LearningProgressController {
      * @param LearningProgress the new learning progress object to be saved
      * @return The saved learning progress object.
      */
+    //get learning progress by id
     @PostMapping
     public ResponseEntity<LearningProgress> createLearningProgress(@RequestBody LearningProgress LearningProgress) {
         LearningProgress savedLearningProgress = LearningProgressRepository.save(LearningProgress);
@@ -65,6 +69,7 @@ public class LearningProgressController {
      * @param LearningProgressId the ID of the record to be deleted
      * @return HTTP status indicating success or failure.
      */
+    //add delete method
     @DeleteMapping("/{LearningProgressId}")
     public ResponseEntity<Void> deleteLearningProgress(@PathVariable String LearningProgressId) {
         LearningProgressRepository.deleteById(LearningProgressId);
@@ -77,6 +82,8 @@ public class LearningProgressController {
      * @param updatedLearningProgress the updated learning progress object
      * @return The updated learning progress object if found, otherwise NOT FOUND status.
      */
+
+    //add update method
     @PutMapping("/{LearningProgressId}")
     public ResponseEntity<LearningProgress> updateLearningProgress(@PathVariable String LearningProgressId, @RequestBody LearningProgress updatedLearningProgress) {
         Optional<LearningProgress> existingLearningProgressOptional = LearningProgressRepository.findById(LearningProgressId);

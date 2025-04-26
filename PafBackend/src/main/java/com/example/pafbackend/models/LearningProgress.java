@@ -17,6 +17,7 @@ import java.util.List;
 public class LearningProgress {
 
     /** Unique identifier for each learning progress record */
+    //add modell for lerning progress
     @Id
     private String id;
 
