@@ -7,7 +7,7 @@ import java.util.Date;
 @Document(collection = "comments")
 public class Comment {
     @Id
-    private String id;
+    private String id;       // Unique id for the comment
     private String postId;   // ID of the post to which this comment belongs
     private String userId;   // ID of the user who made the comment
     private String commentText; // The actual text content of the comment
