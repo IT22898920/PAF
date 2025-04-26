@@ -62,6 +62,9 @@ public class Comment {
         this.timestamp = timestamp;
     }
 
+    // Parameterized constructor for creating a Comment object with all fields set
+
+
     public Comment(String id, String postId, String userId, String commentText, Date timestamp) {
         this.id = id;
         this.postId = postId;
