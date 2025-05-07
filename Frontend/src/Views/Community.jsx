@@ -25,6 +25,74 @@ const Community = () => {
   const navigate = useNavigate();
   const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
 
+  // Custom styles for the component
+  const styles = {
+    container: {
+      backgroundColor: "#F8F9FA",
+      minHeight: "100vh",
+    },
+    header: {
+      backgroundColor: "#FFFFFF",
+      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.06)",
+      position: "sticky",
+      top: 0,
+      zIndex: 1000,
+    },
+    nav: {
+      maxWidth: "1280px",
+      margin: "0 auto",
+      padding: "16px 24px",
+    },
+    navHeader: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+    logo: {
+      display: "flex",
+      alignItems: "center",
+    },
+    logoImg: {
+      height: "36px",
+    },
+    menuBtn: {
+      display: "none",
+      fontSize: "24px",
+      cursor: "pointer",
+      color: "#4361EE",
+    },
+    navLinks: {
+      display: "flex",
+      alignItems: "center",
+      gap: "32px",
+      margin: 0,
+      padding: 0,
+      listStyle: "none",
+    },
+    link: {
+      color: "#1F2937",
+      textDecoration: "none",
+      fontWeight: 500,
+      transition: "color 0.2s ease",
+    },
+    button: {
+      backgroundColor: "#4361EE",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+      padding: "10px 20px",
+      fontWeight: 600,
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+      boxShadow: "0 2px 6px rgba(67, 97, 238, 0.2)",
+    },
+    main: {
+      maxWidth: "1280px",
+      margin: "32px auto",
+      padding: "0 24px",
+    },
+  };
+
   const getWorkoutStories = async () => {
     try {
       const response = await StoryService.getAllWorkoutStories();
@@ -80,38 +148,50 @@ const Community = () => {
   }, []);
 
   return (
-    <div>
+    <div style={styles.container}>
       {/* Navigation Bar */}
-      <header className="">
-        <nav>
-          <div className="nav__header">
+      <header style={styles.header}>
+        <nav style={styles.nav}>
+          <div className="nav__header" style={styles.navHeader}>
             <div className="nav__logo">
-              <Link to="/">
-              <img src="/assets/skillflow.svg" alt="logo" />
-              
+              <Link to="/" style={styles.logo}>
+                <img
+                  src="/assets/skillflow.svg"
+                  alt="logo"
+                  style={styles.logoImg}
+                />
               </Link>
             </div>
-            <div className="nav__menu__btn" id="menu-btn">
+            <div
+              className="nav__menu__btn"
+              id="menu-btn"
+              style={styles.menuBtn}
+            >
               <span>
                 <i className="ri-menu-line"></i>
               </span>
             </div>
           </div>
-          <ul className="nav__links" id="nav-links">
+          <ul className="nav__links" id="nav-links" style={styles.navLinks}>
             <li className="link">
-              <Link to="/">Contact Us</Link>
+              <Link to="/" style={styles.link}>
+                Contact Us
+              </Link>
             </li>
             <li className="link">
-              <Link to="#browse-skills">Browse Skills</Link>
+              <Link to="#browse-skills" style={styles.link}>
+                Browse Skills
+              </Link>
             </li>
             <li className="link">
               <Link
                 to="/community"
                 onClick={() => {
                   if (!localStorage.getItem("userId")) {
-                    setIsAuthModalOpened(true); // Open authentication modal if not logged in
+                    setIsAuthModalOpened(true);
                   }
                 }}
+                style={styles.link}
               >
                 Share Skills
               </Link>
@@ -120,21 +200,21 @@ const Community = () => {
               <button
                 onClick={() => {
                   if (localStorage.getItem("userId")) {
-                    navigate("/"); // Navigate to the community page
+                    navigate("/");
                   } else {
-                    setIsAuthModalOpened(true); // Open authentication modal
+                    setIsAuthModalOpened(true);
                   }
                 }}
-                className="btn"
+                style={styles.button}
               >
-              SkillFlow Home 
+                SkillFlow Home
               </button>
             </li>
           </ul>
         </nav>
       </header>
 
-      <div className="main">
+      <div className="main" style={styles.main}>
         <CenterSection />
       </div>
 
