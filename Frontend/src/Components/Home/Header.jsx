@@ -14,10 +14,10 @@ const themeColors = {
   secondaryLight: "#F4EBFF",
   accent: "#4CC9F0",
 
-  // UI colors
-  background: "#F8FAFC",
-  surface: "#FFFFFF",
-  surfaceHover: "#F1F5F9",
+  // // UI colors
+  // background: "#ffb0ea",
+  // surface: "#FFFFFF",
+  // surfaceHover: "#F1F5F9",
 
   // Text colors
   textPrimary: "#1E293B",
@@ -369,11 +369,11 @@ const Header = () => {
         <div style={styles.navContainer}>
           <div className="nav__logomain" style={styles.navLogo}>
             <Link to="#">
-              <img
+              {/* <img
                 src="/assets/skillflow.svg"
                 alt="SkillFlow"
                 style={styles.logoImage}
-              />
+              /> */}
             </Link>
           </div>
 
@@ -543,7 +543,7 @@ const Header = () => {
         <div style={styles.headerImageContainer}>
           <div style={styles.imageGlow}></div>
           <img
-            src="/assets/skillflowhd.svg"
+            src="/assets/a.gif"
             alt="SkillFlow Platform"
             style={styles.headerImage}
           />

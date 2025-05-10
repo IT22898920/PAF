@@ -28,11 +28,11 @@ const Community = () => {
   // Custom styles for the component
   const styles = {
     container: {
-      backgroundColor: "#F8F9FA",
+      backgroundColor: "#e2ecff",
       minHeight: "100vh",
     },
     header: {
-      backgroundColor: "#FFFFFF",
+      backgroundColor: "#002D69 ",
       boxShadow: "0 2px 10px rgba(0, 0, 0, 0.06)",
       position: "sticky",
       top: 0,
@@ -70,7 +70,7 @@ const Community = () => {
       listStyle: "none",
     },
     link: {
-      color: "#1F2937",
+      color: "#ffffff",//nav_link_color
       textDecoration: "none",
       fontWeight: 500,
       transition: "color 0.2s ease",
